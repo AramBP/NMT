@@ -1,12 +1,12 @@
 import bpe.tokenizer as tokenizer
 from pathlib import Path
 
-project_root = Path(__file__).resolve().parents[1]
-text = project_root / "data" / "test_bpe"
-encode_file = project_root / "data" / "test_bpe_encode"
-decode_file = project_root / "scripts" / "test_bpe_decode"
-bpe_file = project_root / "scripts" / "test.bpe"
+text = "../data/test_bpe"
+encode_file = "test_bpe_encode"
+decode_file = "test_bpe_decode"
 
-bpe_tokenizer = tokenizer.load_file(text, 10, bpe_file)
-tokenizer.encode_file(text, encode_file, bpe_file)
-print(tokenizer.decode_file(encode_file, decode_file, bpe_file))
+bpe = tokenizer.load_file(text, 100)
+bpe.encode_file(text, encode_file)
+tokens = tokenizer.load_tokens(encode_file)
+tokenizer.render_tokens(tokens)
+print(bpe.decode(tokens))

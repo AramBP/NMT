@@ -1,5 +1,13 @@
-Composite types are called records, structs, or objects in various languages. A composite 
-type is a collection of named fields, an instance of which can be treated as a single value. 
-In many languages, composite types are the only kind of user-definable type, and they are by far the most commonly used user-defined type in Julia as well.
+Compared with other programming languages, Python’s class mechanism adds classes with a minimum of new syntax and semantics. 
+It is a mixture of the class mechanisms found in C++ and Modula-3. 
+Python classes provide all the standard features of Object Oriented Programming: the class inheritance mechanism allows multiple base classes, 
+a derived class can override any methods of its base class or classes, and a method can call the method of a base class with the same name. 
+Objects can contain arbitrary amounts and kinds of data. As is true for modules, classes partake of the dynamic nature of Python: they are created at runtime, 
+and can be modified further after creation.
 
-In mainstream object oriented languages, such as C++, Java, Python and Ruby, composite types also have named functions associated with them, and the combination is called an "object". In purer object-oriented languages, such as Ruby or Smalltalk, all values are objects whether they are composites or not. In less pure object oriented languages, including C++ and Java, some values, such as integers and floating-point values, are not objects, while instances of user-defined composite types are true objects with associated methods. In Julia, all values are objects, but functions are not bundled with the objects they operate on. This is necessary since Julia chooses which method of a function to use by multiple dispatch, meaning that the types of all of a function's arguments are considered when selecting a method, rather than just the first one (see Methods for more information on methods and dispatch). Thus, it would be inappropriate for functions to "belong" to only their first argument. Organizing methods into function objects rather than having named bags of methods "inside" each object ends up being a highly beneficial aspect of the language design.
+In C++ terminology, normally class members (including the data members) are public (except see below Private Variables), 
+and all member functions are virtual. As in Modula-3, there are no shorthands for referencing the object’s members from its methods: 
+the method function is declared with an explicit first argument representing the object, which is provided implicitly by the call. 
+As in Smalltalk, classes themselves are objects. This provides semantics for importing and renaming. 
+Unlike C++ and Modula-3, built-in types can be used as base classes for extension by the user. 
+Also, like in C++, most built-in operators with special syntax (arithmetic operators, subscripting etc.) can be redefined for class instances.
